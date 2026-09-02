@@ -1,0 +1,17 @@
+{
+  "name": "config-panel",
+  "version": "1.0.0",
+  "description": "یک پنل کانفیگ جامع برای مدیریت تنظیمات سیستم، پروفایل کاربر و امنیت",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "config-panel",
+    "settings",
+    "configuration",
+    "admin-panel"
+  ],
+  "author": "mohking73",
+  "license": "MIT"
+}

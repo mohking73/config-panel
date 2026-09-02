@@ -1,0 +1,5 @@
+# GitHub Pages Configuration
+site:
+  title: Config Panel
+  description: یک پنل کانفیگ جامع برای مدیریت تنظیمات
+  url: https://mohking73.github.io/config-panel/

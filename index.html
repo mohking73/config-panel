@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Panel Config Pro - صفحه اصلی</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <i class="fas fa-cog"></i>
+                <span>Panel Config Pro</span>
+            </div>
+            <div class="navbar-menu">
+                <a href="index.html" class="nav-link active">صفحه اصلی</a>
+                <a href="dashboard.html" class="nav-link">داشبورد</a>
+                <a href="#" id="logoutBtn" class="nav-link">خروج</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">👤</div>
+                <div class="user-info">
+                    <h3 id="userName">نام کاربر</h3>
+                    <p id="userEmail" class="user-email">email@example.com</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#profile" class="sidebar-link active" data-section="profile"><i class="fas fa-user"></i> پروفایل</a></li>
+                    <li><a href="#security" class="sidebar-link" data-section="security"><i class="fas fa-lock"></i> امنیت</a></li>
+                    <li><a href="#system" class="sidebar-link" data-section="system"><i class="fas fa-sliders-h"></i> سیستم</a></li>
+                    <li><a href="#notifications" class="sidebar-link" data-section="notifications"><i class="fas fa-bell"></i> اطلاعات</a></li>
+                    <li><a href="#preferences" class="sidebar-link" data-section="preferences"><i class="fas fa-palette"></i> ترجیحات</a></li>
+                    <li><a href="#tools" class="sidebar-link" data-section="tools"><i class="fas fa-tools"></i> ابزارها</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Alert Messages -->
+            <div id="alertContainer"></div>
+
+            <!-- Profile Section -->
+            <section id="profile" class="config-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-user"></i> پروفایل کاربر</h2>
+                    <p class="section-desc">مدیریت اطلاعات شخصی و پروفایل کاربری</p>
+                </div>
+                <form class="config-form" id="profileForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>نام کامل</label>
+                            <input type="text" name="fullName" placeholder="نام و نام‌خانوادگی" required>
+                        </div>
+                        <div class="form-group">
+                            <label>نام کاربری</label>
+                            <input type="text" name="username" placeholder="نام کاربری منحصر به فرد" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>ایمیل</label>
+                            <input type="email" name="email" placeholder="your@email.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>شماره تماس</label>
+                            <input type="tel" name="phone" placeholder="09xxxxxxxxx">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>شهر</label>
+                            <input type="text" name="city" placeholder="شهر محل سکونت">
+                        </div>
+                        <div class="form-group">
+                            <label>کشور</label>
+                            <input type="text" name="country" placeholder="کشور">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>بیوگرافی</label>
+                        <textarea name="bio" rows="4" placeholder="معلومات کوتاه درباره خود"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>تصویر پروفایل</label>
+                        <div class="file-upload">
+                            <input type="file" name="avatar" accept="image/*" id="avatarInput">
+                            <span class="upload-text">برای انتخاب تصویر کلیک کنید</span>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> ذخیره تغییرات</button>
+                        <button type="reset" class="btn btn-secondary"><i class="fas fa-redo"></i> بازنشانی</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Security Section -->
+            <section id="security" class="config-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-lock"></i> تنظیمات امنیتی</h2>
+                    <p class="section-desc">مدیریت رمز عبور و تنظیمات امنیتی</p>
+                </div>
+                <form class="config-form" id="securityForm">
+                    <div class="form-group">
+                        <label>رمز عبور فعلی</label>
+                        <input type="password" name="currentPassword" placeholder="رمز عبور فعلی">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>رمز عبور جدید</label>
+                            <input type="password" name="newPassword" placeholder="رمز عبور جدید حداقل 6 کاراکتر">
+                        </div>
+                        <div class="form-group">
+                            <label>تایید رمز عبور</label>
+                            <input type="password" name="confirmPassword" placeholder="تایید رمز عبور جدید">
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="security-options">
+                        <div class="option-item">
+                            <div class="option-header">
+                                <h3><i class="fas fa-shield-alt"></i> احراز هویت دو مرحله‌ای</h3>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="twoFactorAuth">
+                                    <span></span>
+                                </label>
+                            </div>
+                            <p>برای امنیت بیشتر از احراز هویت دو مرحله‌ای استفاده کنید</p>
+                        </div>
+                        <div class="option-item">
+                            <div class="option-header">
+                                <h3><i class="fas fa-bell"></i> هشدارهای ورود</h3>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="loginAlerts" checked>
+                                    <span></span>
+                                </label>
+                            </div>
+                            <p>دریافت هشدار برای هر ورود جدید</p>
+                        </div>
+                        <div class="option-item">
+                            <div class="option-header">
+                                <h3><i class="fas fa-history"></i> تاریخ ورود</h3>
+                                <a href="#" class="link-text">مشاهده</a>
+                            </div>
+                            <p>مشاهده تاریخ تمام ورود‌های شما</p>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> ذخیره تغییرات امنیتی</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- System Settings Section -->
+            <section id="system" class="config-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-sliders-h"></i> تنظیمات سیستم</h2>
+                    <p class="section-desc">تنظیم پارامترهای سیستمی</p>
+                </div>
+                <form class="config-form" id="systemForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>زبان</label>
+                            <select name="language">
+                                <option value="fa">فارسی</option>
+                                <option value="en">English</option>
+                                <option value="ar">العربية</option>
+                                <option value="fr">Français</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>موضوع (Theme)</label>
+                            <select name="theme">
+                                <option value="light">روشن</option>
+                                <option value="dark">تاریک</option>
+                                <option value="auto">خودکار</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>منطقه زمانی</label>
+                            <select name="timezone">
+                                <option value="Asia/Tehran">تهران (UTC+3:30)</option>
+                                <option value="Asia/Dubai">دبی (UTC+4)</option>
+                                <option value="UTC">UTC</option>
+                                <option value="Europe/London">لندن (UTC+0)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>سایز فونت</label>
+                            <select name="fontSize">
+                                <option value="small">کوچک</option>
+                                <option value="medium">متوسط</option>
+                                <option value="large">بزرگ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="option-item">
+                        <div class="option-header">
+                            <h3><i class="fas fa-download"></i> به‌روزرسانی خودکار</h3>
+                            <label class="toggle-switch">
+                                <input type="checkbox" name="autoUpdate" checked>
+                                <span></span>
+                            </label>
+                        </div>
+                        <p>نرم‌افزار را به‌صورت خودکار به‌روزرسانی کنید</p>
+                    </div>
+                    <div class="option-item">
+                        <div class="option-header">
+                            <h3><i class="fas fa-chart-line"></i> تجزیه و تحلیل</h3>
+                            <label class="toggle-switch">
+                                <input type="checkbox" name="analytics" checked>
+                                <span></span>
+                            </label>
+                        </div>
+                        <p>اجازه‌دهی تجزیه و تحلیل استفاده برای بهبود سرویس</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> ذخیره تنظیمات</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Notifications Section -->
+            <section id="notifications" class="config-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-bell"></i> اطلاعات رسانی</h2>
+                    <p class="section-desc">مدیریت روش‌های اطلاع‌رسانی</p>
+                </div>
+                <form class="config-form" id="notificationsForm">
+                    <div class="notification-options">
+                        <div class="notification-item">
+                            <div class="notification-header">
+                                <h3><i class="fas fa-envelope"></i> اطلاعات ایمیل</h3>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="emailNotifications" checked>
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="notification-detail">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="emailNewsletter" checked>
+                                    خبرنامه هفتگی
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="emailUpdates" checked>
+                                    اطلاع به‌روزرسانی‌ها
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-header">
+                                <h3><i class="fas fa-comment-sms"></i> اطلاعات پیامک</h3>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="smsNotifications">
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-header">
+                                <h3><i class="fas fa-bell"></i> اطلاعات پوش</h3>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="pushNotifications" checked>
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>فرکانس اطلاعات</label>
+                            <select name="notifyFrequency">
+                                <option value="instant">فوری</option>
+                                <option value="daily">روزانه</option>
+                                <option value="weekly">هفتگی</option>
+                                <option value="monthly">ماهیانه</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="quiet-hours">
+                        <h3><i class="fas fa-moon"></i> ساعات بی‌سروصدا</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>از ساعت</label>
+                                <input type="time" name="quietStart" value="22:00">
+                            </div>
+                            <div class="form-group">
+                                <label>تا ساعت</label>
+                                <input type="time" name="quietEnd" value="08:00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> ذخیره اطلاعات</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Preferences Section -->
+            <section id="preferences" class="config-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-palette"></i> ترجیحات</h2>
+                    <p class="section-desc">تخصیص‌دهی تجربه کاربری</p>
+                </div>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <h3><i class="fas fa-sun"></i> رنگ اصلی</h3>
+                        <input type="color" id="primaryColor" value="#6366f1">
+                    </div>
+                    <div class="preference-item">
+                        <h3><i class="fas fa-palette"></i> رنگ فرعی</h3>
+                        <input type="color" id="secondaryColor" value="#8b5cf6">
+                    </div>
+                    <div class="preference-item">
+                        <h3><i class="fas fa-sliders-h"></i> تراکم رابط</h3>
+                        <select id="density">
+                            <option value="compact">فشرده</option>
+                            <option value="normal">معمولی</option>
+                            <option value="spacious">متسع</option>
+                        </select>
+                    </div>
+                    <div class="preference-item">
+                        <h3><i class="fas fa-volume-mute"></i> صدا</h3>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Section -->
+            <section id="tools" class="config-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tools"></i> ابزارها</h2>
+                    <p class="section-desc">ابزارهای مدیریتی و صادرات</p>
+                </div>
+                <div class="tools-grid">
+                    <button id="exportBtn" class="tool-btn">
+                        <i class="fas fa-download"></i>
+                        <span>صادرات داده‌ها</span>
+                        <small>دانلود تمام اطلاعات</small>
+                    </button>
+                    <button id="importBtn" class="tool-btn">
+                        <i class="fas fa-upload"></i>
+                        <span>واردات داده‌ها</span>
+                        <small>بارگذاری اطلاعات</small>
+                    </button>
+                    <button id="backupBtn" class="tool-btn">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        <span>Backup</span>
+                        <small>ایجاد نسخه پشتیبان</small>
+                    </button>
+                    <button id="auditBtn" class="tool-btn">
+                        <i class="fas fa-history"></i>
+                        <span>تاریخ تغییرات</span>
+                        <small>مشاهده Audit Log</small>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Audit Log Modal -->
+    <div id="auditModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-history"></i> تاریخ تغییرات</h2>
+                <button class="close-btn" id="closeAuditModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="auditList" class="audit-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="database.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

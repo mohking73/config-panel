@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 داشبورد مدیریتی - Panel Config Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <i class="fas fa-chart-line"></i>
+                <span>Panel Config Pro - داشبورد</span>
+            </div>
+            <div class="navbar-menu">
+                <a href="index.html" class="nav-link">صفحه اصلی</a>
+                <a href="dashboard.html" class="nav-link active">داشبورد</a>
+                <a href="#" id="logoutBtn" class="nav-link">خروج</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h1>🎯 داشبورد مدیریتی</h1>
+            <p id="dashboardTime" class="dashboard-time"></p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #6366f1;">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>تعداد کاربران</h3>
+                    <p class="stat-value" id="totalUsers">0</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #10b981;">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>تغییرات</h3>
+                    <p class="stat-value" id="totalAudit">0</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #f59e0b;">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>حجم ذخیره</h3>
+                    <p class="stat-value" id="storageUsed">0 KB</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: #3b82f6;">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>آخرین فعالیت</h3>
+                    <p class="stat-value" id="lastActivity">الان</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2><i class="fas fa-chart-bar"></i> فعالیت‌های اخیر</h2>
+                <canvas id="activityChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2><i class="fas fa-chart-pie"></i> نوع عمل‌های انجام شده</h2>
+                <canvas id="actionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="recent-activities">
+            <div class="activity-header">
+                <h2><i class="fas fa-list"></i> فعالیت‌های اخیر</h2>
+                <button id="clearAuditBtn" class="btn btn-small"><i class="fas fa-trash"></i> پاک کردن</button>
+            </div>
+            <div class="activity-list" id="activityList"></div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="users-section">
+            <h2><i class="fas fa-users"></i> لیست کاربران</h2>
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>نام</th>
+                            <th>ایمیل</th>
+                            <th>نقش</th>
+                            <th>تاریخ ثبت</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 2rem;">
+                                <i class="fas fa-spinner fa-spin"></i> بارگذاری...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Detail Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>جزئیات کاربر</h2>
+                <button class="close-btn" id="closeUserModal">&times;</button>
+            </div>
+            <div class="modal-body" id="userModalContent"></div>
+            <div class="modal-footer">
+                <button id="deleteUserBtn" class="btn btn-danger"><i class="fas fa-trash"></i> حذف کاربر</button>
+                <button id="closeUserModalBtn" class="btn btn-secondary">بستن</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="database.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

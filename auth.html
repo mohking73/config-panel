@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود و ثبت‌نام - Panel Config Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        .auth-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+        .auth-box h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #6366f1;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        .btn-auth {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+        .toggle-auth {
+            text-align: center;
+            margin-top: 1rem;
+            color: #6b7280;
+        }
+        .toggle-auth a {
+            color: #6366f1;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        .success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>🔐 Panel Config Pro</h1>
+            
+            <div class="error" id="errorMsg"></div>
+            <div class="success" id="successMsg"></div>
+
+            <!-- فرم ورود -->
+            <form id="loginForm">
+                <h2 style="text-align: center; margin-bottom: 1.5rem; color: #1f2937; font-size: 1.2rem;">ورود</h2>
+                
+                <div class="form-group">
+                    <label for="loginEmail">ایمیل</label>
+                    <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">رمز عبور</label>
+                    <input type="password" id="loginPassword" placeholder="رمز عبور" required>
+                </div>
+                
+                <button type="submit" class="btn-auth">ورود</button>
+            </form>
+
+            <!-- فرم ثبت‌نام -->
+            <form id="registerForm" style="display: none;">
+                <h2 style="text-align: center; margin-bottom: 1.5rem; color: #1f2937; font-size: 1.2rem;">ثبت‌نام</h2>
+                
+                <div class="form-group">
+                    <label for="registerName">نام کامل</label>
+                    <input type="text" id="registerName" placeholder="نام و نام‌خانوادگی" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerEmail">ایمیل</label>
+                    <input type="email" id="registerEmail" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">رمز عبور</label>
+                    <input type="password" id="registerPassword" placeholder="حداقل 6 کاراکتر" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword2">تایید رمز عبور</label>
+                    <input type="password" id="registerPassword2" placeholder="تایید رمز عبور" required>
+                </div>
+                
+                <button type="submit" class="btn-auth">ثبت‌نام</button>
+            </form>
+
+            <div class="toggle-auth">
+                <p>آیا حساب دارید؟ <a id="toggleBtn">ثبت‌نام کنید</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="database.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
